@@ -150,8 +150,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title} - Home`}
+      description="Privacy-first legally binding agreements for a tokenized world"
     >
       <HomepageHeader />
       <main>
