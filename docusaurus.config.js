@@ -6,18 +6,18 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "zkSig - ",
+  tagline: "Privacy-first legally binding agreements for a tokenized world",
+  url: "https://zksig.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/logo.png",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "zksig", // Usually your GitHub org/user name.
+  projectName: "docs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -53,42 +53,40 @@ const config = {
     ],
   ],
 
+  plugins: [
+    async function myPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        disableSwitch: true,
+      },
       navbar: {
-        title: "",
         logo: {
-          alt: "ZKsig Logo",
-          src: "https://zksig.io/logo_v2.jpg",
+          alt: "zkSig Logo",
+          src: "/img/logo-font.png",
         },
-        items: [
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/zksig",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
       },
       footer: {
-        style: "dark",
+        style: "light",
+        logo: {
+          alt: "zkSig Logo",
+          src: "/img/logo-font.png",
+          width: 100,
+        },
         links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
           {
             title: "Community",
             items: [
@@ -96,19 +94,27 @@ const config = {
                 label: "Twitter",
                 href: "https://twitter.com/zksigio",
               },
-            ],
-          },
-          {
-            title: "More",
-            items: [
               {
                 label: "GitHub",
                 href: "https://github.com/zksig",
               },
             ],
           },
+          {
+            title: "Legal",
+            items: [
+              {
+                label: "Privacy",
+                href: "/privacy-policy",
+              },
+              {
+                label: "Terms",
+                href: "/terms-and-conditions",
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ZKsig, LLC. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} zkSig, INC.`,
       },
       prism: {
         theme: lightCodeTheme,
