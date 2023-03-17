@@ -4,6 +4,7 @@ import clsx from "clsx";
 import mixpanel from "mixpanel-browser";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
+import { Button } from "./Button";
 
 function MobileNavLink({ href, children }) {
   return (
@@ -93,16 +94,19 @@ export function Header() {
             </a>
             <div className="hidden md:flex md:gap-x-6"></div>
           </div>
-          <div className="flex items-center gap-x-5 md:gap-x-8">
-            <a
+          <div className="flex items-center gap-x-4 md:gap-x-4">
+            {/* <Button variant="outline" href="/docs/intro">
+              Documentation
+            </Button> */}
+            <Button
+              variant="solid"
               href="https://alpha.zksig.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md bg-gray-800 px-3.5 py-1.5 text-base font-semibold leading-7 text-gray-100  shadow-sm hover:underline"
               onClick={() => mixpanel.track("Header Login")}
             >
               Try Our Alpha
-            </a>
+            </Button>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

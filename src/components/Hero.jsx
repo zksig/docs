@@ -1,5 +1,6 @@
 import React from "react";
 import mixpanel from "mixpanel-browser";
+import { Button } from "./Button";
 
 export function Hero() {
   return (
@@ -68,15 +69,16 @@ export function Hero() {
             divulging private information.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
-            <a
+            <Button
+              variant="solid"
+              color="yellow"
               href="https://alpha.zksig.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md bg-yellow-200 px-3.5 py-1.5 text-base font-semibold leading-7 text-gray-800 shadow-sm hover:underline"
               onClick={() => mixpanel.track("Hero Login")}
             >
               Try Our Alpha
-            </a>
+            </Button>
           </div>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">

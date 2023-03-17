@@ -1,5 +1,6 @@
 import React from "react";
 import mixpanel from "mixpanel-browser";
+import { Button } from "./Button";
 
 export function CallToAction() {
   return (
@@ -11,15 +12,16 @@ export function CallToAction() {
           </h2>
 
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
+            <Button
+              varient="solid"
+              color="white"
               href="https://alpha.zksig.io"
-              className="rounded-md bg-gray-100 px-3.5 py-1.5 text-base font-semibold leading-7 text-gray-800 shadow-sm hover:underline"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => mixpanel.track("CTA Login")}
             >
               Try Our Alpha
-            </a>
+            </Button>
           </div>
         </div>
       </div>
