@@ -6,7 +6,7 @@ title: Overview
 # Overview
 
 A new agreement is primarily processed in a user's browser (see [Agreement Processing](./agreement-processing.md))
-with the zksig SDK. The in-browser processing results in:
+with the zkSig SDK. The in-browser processing results in:
 
 - Document ID
 - Expected Participants
@@ -15,7 +15,7 @@ with the zksig SDK. The in-browser processing results in:
 - Encrypted Encryption Key
 - Zero Knowledge Proof of Valid Agreement
 
-This information is sent to the zksig API where it is verified and stored.
+This information is sent to the zkSig API where it is verified and stored.
 
 ## In-Browser
 
@@ -33,7 +33,7 @@ sequenceDiagram
   API -->> Creator: Transaction hash
 ```
 
-## zksig API
+## zkSig API
 
 ```mermaid
 sequenceDiagram
