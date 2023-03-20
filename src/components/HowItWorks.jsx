@@ -46,24 +46,18 @@ function Feature({ feature, isActive, className, ...props }) {
     >
       <div
         className={clsx(
-          "absolute flex h-12 w-12 items-center justify-center rounded-xl  text-gray-100",
+          "flex h-12 w-12 items-center justify-center rounded-xl  text-gray-100",
           isActive ? "bg-emerald-400" : "bg-slate-400"
         )}
       >
         <feature.icon className="h-8 w-8" aria-hidden="true" />
       </div>
-      <h3
-        className={clsx(
-          "mt-6 text-sm font-medium",
-          isActive ? "text-white-600" : "text-white-600"
-        )}
-      >
-        {feature.name}
-      </h3>
-      <p className="mt-2 font-display text-xl font-semibold text-slate-900">
+      <p className="mt-2 font-display text-lg font-semibold text-slate-900 text-left">
         {feature.summary}
       </p>
-      <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
+      <p className="mt-4 text-sm text-slate-600 text-left">
+        {feature.description}
+      </p>
     </div>
   );
 }
@@ -98,20 +92,22 @@ function DesktopFlow() {
         <>
           <Tab.List className="grid grid-cols-3 gap-x-8">
             {features.map((feature, featureIndex) => (
-              <Feature
-                key={feature.name}
-                feature={{
-                  ...feature,
-                  name: (
-                    <Tab className="[&:not(:focus-visible)]:focus:outline-none">
-                      <span className="absolute inset-0" />
-                      {feature.name}
-                    </Tab>
-                  ),
-                }}
-                isActive={featureIndex === selectedIndex}
-                className="relative"
-              />
+              <Tab>
+                <Feature
+                  key={feature.name}
+                  feature={{
+                    ...feature,
+                    name: (
+                      <Tab className="[&:not(:focus-visible)]:focus:outline-none">
+                        <span className="absolute inset-0" />
+                        {feature.name}
+                      </Tab>
+                    ),
+                  }}
+                  isActive={featureIndex === selectedIndex}
+                  className="relative"
+                />
+              </Tab>
             ))}
           </Tab.List>
           <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
