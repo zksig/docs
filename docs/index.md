@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Modules
 
-zkSig is comprised of the following modules:
+zkSig comprises the following modules:
 
 - **Authentication** - user provides credentials to prove who they are
 - **Encrypted Storage** - used to store encrypted files containing details about agreements and signatures
