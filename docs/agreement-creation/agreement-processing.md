@@ -25,9 +25,42 @@ and an SMT that represents the form fields of a PDF.
 
 An agreement's PDF is taken apart page by page and inserted into an SMT.
 
-- Each page of the PDF is [poseidon hashed](https://www.poseidon-hash.info/), a zk-friendly hashing function.
-- Each page's poseidon hash is then inserted into a sparse merkle tree (SMT)
+- A new PDF is created out of each page in a PDF
+- Each page PDF is [poseidon hashed](https://www.poseidon-hash.info/)
+- Each page hash is then inserted into a sparse merkle tree (SMT)
 
 <img src={pdfTree} width="250" style={{ margin: "auto", display: "block" }} />
 
 ### PDF Form Fields SMT
+
+The name of every field in a PDF is [poseidon hashed](https://www.poseidon-hash.info/) and inserted
+into an SMT.
+
+## Step 2: Encrypt Agreement PDF
+
+An agreement's PDF is encrypted so that it can be stored publically on IPFS. To do this a randomly
+generated encryption key is created. The PDF is then encrypted using [xsalsa20](https://www.xsalsa20.com/).
+
+## Step 3: Create a document ID
+
+A docuemnt ID is created with the following goals:
+
+- create a unique identifier for an agreement
+- have the ability to prove a detail about an agreement (e.g. its title) without divulging additional information
+
+To accomplish this basic details about an agreement are inserted into an SMT:
+
+- title
+- PDF IPFS CID for the agreement PDF
+- IPFS CID for the agreement PDF post encryption (from step 2)
+- PDF page hash (from step 1)
+- PDF fields hash (from step 1)
+- total pages in the PDF
+- encryption key (from step 2)
+
+The root node of this SMT is considered the document ID.
+
+## Step 4: Zero Knowledge Proof Generation
+
+A zero knowledge proof is generated to prove that the hash from step 3 is a valid document ID
+(it represents a valid SMT).
