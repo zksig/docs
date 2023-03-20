@@ -1,60 +1,79 @@
 import React from "react";
+import useCollapse from 'react-collapsed';
 import { Container } from "./Container";
 import backgroundImage from "../../static/img/background-faqs.jpg";
 
 const faqs = [
   [
     {
-      question: "Does TaxPal handle VAT?",
+      question: "What is zkSig?",
       answer:
-        "Well no, but if you move your company offshore you can probably ignore it.",
+        "zkSig is an esignature and document management platform designed for connecting on-chain activity with off-chain enforcement. We use zero knowledge proofs and on-chain audit trails to securely share select data from digital documents, unlocking web3 workflows with smart contract hooks, while integrating with existing web2 applications.",
     },
     {
-      question: "Can I pay for my subscription via purchase order?",
-      answer: "Absolutely, we are happy to take your money in all forms.",
+      question: "Who is zkSig for?",
+      answer: <p> * Anyone wanting extra security around their digital documents and sensitive data. <br />
+        * Builders creating applications based on data currently locked in digital documents <br />
+        * Individuals and organizations wanting to connect legal agreements and on-chain transactions <br />
+        * Those working to bridge the gap between web2 and web3 </p>
     },
     {
-      question: "How do I apply for a job at TaxPal?",
+      question: "Are zkSig and DocuSign the same thing?",
       answer:
-        "We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.",
+        "Nope. Although zkSig and DocuSign are both esignature platforms, zkSig is web3 compatible, non-custodial, and decentralized.",
     },
   ],
   [
     {
-      question: "What was that testimonial about tax fraud all about?",
+      question: "How does zkSig create legally binding agreements?",
       answer:
-        "TaxPal is just a software application, ultimately your books are your responsibility.",
+        "Our platform follows a signing process that complies with the Electronic Signatures In Global and National Commerce (ESIGN) Act which became U.S. law in June of 2000. Notably, we notify signers that their signatures are binding and provide users ongoing access to their completed documents and related information.",
     },
     {
       question:
-        "TaxPal sounds horrible but why do I still feel compelled to purchase?",
+        "Do I need a crypto wallet to use zkSig?",
       answer:
-        "This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.",
+        "No need to create or connect a wallet to use zkSig. We use web3Auth so you can log in with an email address.",
     },
     {
-      question:
-        "I found other companies called TaxPal, are you sure you can use this name?",
+      question: "Can I download and save my zkSig docs?",
       answer:
-        "Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.",
+        "Yes! Users who originate or sign a document can download PDF copies of the signed document along with a certificate with additional details about the document.",
     },
   ],
   [
     {
-      question: "How do you generate reports?",
-      answer:
-        "You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.",
+      question: "How is zkSig decentralized and non-custodial?",
+      answer: "We encrypt and hash information about digital agreements before storing the hash on decentralized public blockchains, not on servers we own or operate. We also encrypt PDF documents before storing them on Filecoin’s decentralized storage network. Only individuals who are parties to an agreement can decipher digital document information and PDF agreements using their private keys. We cannot access user private keys.",
     },
     {
-      question: "Can we expect more inventory features?",
-      answer: "In life it’s really better to never expect anything at all.",
+      question: "Is my personal data safe with zkSig?",
+      answer:
+        "We think so! Because agreement details and PDF documents are encrypted and hashed before reaching our system, we can’t see any sensitive information in or about your agreements. This means that were someone to break into our system, they couldn’t see that information either.",
     },
     {
-      question: "I lost my password, how do I get into my account?",
+      question: "Where can developers find more info?",
       answer:
-        "Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.",
+        "Our technical docs will be up shortly. In the meantime reach out via email!",
     },
   ],
 ];
+
+function CollapsibleQuestion({ question, answer }) {
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+  return (
+    <div className="collapsible">
+      <h3 className="header font-display font-semibold text-lg leading-7 text-slate-900" {...getToggleProps()}>
+        {isExpanded ? `- ${question}` : `+ ${question}`}
+      </h3>
+      <div {...getCollapseProps()}>
+        <div className="content">
+          <p className="mt-4 text-md text-slate-700">{answer}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Faqs() {
   return (
@@ -77,11 +96,11 @@ export function Faqs() {
             id="faq-title"
             className="font-display font-semibold text-3xl tracking-tight text-slate-900 sm:text-4xl"
           >
-            Frequently asked questions
+            Frequently Asked Questions
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            If you can’t find what you’re looking for, email our support team
-            and if you’re lucky someone will get back to you.
+            If you can’t find what you’re looking for, email <a href="mailto:hello@zksig.io">hello@zksig.io</a> and we'll
+            do our best to get you the information you need.
           </p>
         </div>
         <ul
@@ -93,10 +112,7 @@ export function Faqs() {
               <ul role="list" className="flex flex-col gap-y-8">
                 {column.map((faq, faqIndex) => (
                   <li key={faqIndex}>
-                    <h3 className="font-display font-semibold text-lg leading-7 text-slate-900">
-                      {faq.question}
-                    </h3>
-                    <p className="mt-4 text-sm text-slate-700">{faq.answer}</p>
+                    <CollapsibleQuestion question={faq.question} answer={faq.answer} />
                   </li>
                 ))}
               </ul>
