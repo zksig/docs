@@ -2,6 +2,9 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  corePlugins: {
+    preflight: false
+  },
   content: ['./src/**/*.{js,jsx}'],
   theme: {
     fontSize: {
