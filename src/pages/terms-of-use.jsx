@@ -3,7 +3,7 @@ import mixpanel from "mixpanel-browser";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-if (window.location.hostname.includes("zksig.io")) {
+if (process.env.NODE_ENV === "production") {
   mixpanel.init("eec85d062d86fd7d20d2d8d5d20bf578");
   mixpanel.track("Terms of Use View");
 }
