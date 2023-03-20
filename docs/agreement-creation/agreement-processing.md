@@ -16,8 +16,8 @@ An agreement's PDF is processed with the following goals:
 - have the ability to prove that a page is contained within a PDF without sharing the original PDF
 - have the ability to prove that a form field is contained within a PDF without sharing the original PDF
 
-To accomplish this two sparse merkle trees (SMTs) are created: an SMT that represents the pages of a PDF
-and an SMT that represents the form fields of a PDF.
+To accomplish this two [sparse merkle trees](https://wiki.polygon.technology/docs/zkEVM/zkProver/sparse-merkle-tree/)
+(SMTs) are created: an SMT that represents the pages of a PDF and an SMT that represents the form fields of a PDF.
 
 ### PDF Pages SMT
 

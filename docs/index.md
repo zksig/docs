@@ -6,21 +6,20 @@ sidebar_position: 1
 
 ## Modules
 
-zkSig comprises the following modules:
+- **Identity** - primitives for identifying a user, signing messages, and encrypting data
+- **Storage** -  primitives for saving and retrieving files from persistent storage
+- **Audit Trail** - a service for creating, updating, and accessing a chronological record of agreement events
+- **Event Broadcaster** - services used to broadcast messages to smart contracts and webhooks
 
-- **Authentication** - user provides credentials to prove who they are
-- **Encrypted Storage** - used to store encrypted files containing details about agreements and signatures
-- **Public Audit Trail** - a chronological record of agreement events stored in public as hashes
-- **Event Broadcaster** - listens to agreement events and broadcasts messages to smart contracts and webhooks
-
-Because of the modular design, zkSig can scale into new jurisdictions and new use cases by implementing
-different versions of the above modules. For example, currently we use [Web3Auth](https://web3auth.io/)
-to handle authentication. However, in the future we can implement new authentication modules like Decentralized
-Identity or Centralized Public Key.
+Novel implementations of these modules can be implemented to cover new jurisdictions and unforeseen use cases.
+For example, currently we use [Web3Auth](https://web3auth.io/) to handle **identity**. However, in the future we
+can implement new **identity** modules like [Decentralized Identity](https://polygon.technology/polygon-id) or
+[Centralized Certificate Authorities](https://en.wikipedia.org/wiki/Certificate_authority). Similarly, we can
+implement new **event broadcasters** to send to agreement events to any blockchain.
 
 ## Features & Flows
 
-The above modules are composed in different to create different features and user flows.
+The above modules are composed to create features and user flows.
 
 ### Create & Sign Agreement
 
