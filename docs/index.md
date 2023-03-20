@@ -7,7 +7,8 @@ sidebar_position: 1
 ## Modules
 
 - **Identity** - primitives for identifying a user, signing messages, and encrypting data
-- **Storage** -  primitives for saving and retrieving files from persistent storage
+- **Zero Knowledge** - primitives for proof generation and verification
+- **Storage** - primitives for saving and retrieving files from persistent storage
 - **Audit Trail** - a service for creating, updating, and accessing a chronological record of agreement events
 - **Event Broadcaster** - services used to broadcast messages to smart contracts and webhooks
 
@@ -26,42 +27,42 @@ The above modules are composed to create features and user flows.
 ```mermaid
 sequenceDiagram
   actor User
-  participant Authentication
+  participant Identity
   participant ZeroKnowledge
-  participant EncryptedStorage
-  participant PublicAuditTrail
+  participant Storage
+  participant AuditTrail
   participant EventBroadcaster
 
-  User ->> Authentication: User identifies themself
-  Authentication -->> User: User credentials
+  User ->> Identity: User identifies themself
+  Identity -->> User: User credentials
 
   User ->> ZeroKnowledge: Create or sign agreement
   ZeroKnowledge -->> User: ZKP of agreement or signature validity
 
-  User ->> EncryptedStorage: Store agreement or signature data
+  User ->> Storage: Store agreement or signature data
 
-  User ->> PublicAuditTrail: Create or insert into public agreement audit trail
-  PublicAuditTrail -->> EventBroadcaster: Broadcast agreement events
+  User ->> AuditTrail: Create or insert into public agreement audit trail
+  AuditTrail -->> EventBroadcaster: Broadcast agreement events
 ```
 
 ### Share Agreement Detail
 
-A `User` can share details about an agreement with a `Recipient`  by creating a zero knowledge proof
+A `User` can share details about an agreement with a `Recipient` by creating a zero knowledge proof
 in-browser.
 
 ```mermaid
 sequenceDiagram
   actor User
-  participant Authentication
-  participant EncryptedStorage
+  participant Identity
+  participant Storage
   participant ZeroKnowledge
   actor Recipient
 
-  User ->> Authentication: User identifies themself
-  Authentication -->> User: User credentials
+  User ->> Identity: User identifies themself
+  Identity -->> User: User credentials
 
-  User ->> EncryptedStorage: Request agreement or signature details
-  EncryptedStorage -->> User: Decrypted details
+  User ->> Storage: Request agreement or signature details
+  Storage -->> User: Decrypted details
 
   User ->> ZeroKnowledge: Create proof for agreement detail
   ZeroKnowledge -->> User: ZKP of agreement detail
@@ -74,10 +75,10 @@ The `Recipient` can then verify the zero knowledge proof shared with them using 
 ```mermaid
 sequenceDiagram
   actor Recipient
-  participant PublicAuditTrail
+  participant AuditTrail
   participant ZeroKnowledge
 
-  Recipient ->> PublicAuditTrail: Check hashes stored on public audit trail
+  Recipient ->> AuditTrail: Check hashes stored on public audit trail
   Recipient ->> ZeroKnowledge: Call on-chain verification method with provided ZKP
   ZeroKnowledge -->> Recipient: Verification result
 ```
@@ -88,13 +89,13 @@ sequenceDiagram
 sequenceDiagram
   participant EventBroadcaster
   participant SmartContract
-  participant PublicAuditTrail
+  participant AuditTrail
   participant ZeroKnowledge
 
   EventBroadcaster ->> SmartContract: Call method on smart contract with ZKP
 
-  SmartContract ->> PublicAuditTrail: Retrieve agreement hashes
-  PublicAuditTrail -->> SmartContract: Agreement hashes
+  SmartContract ->> AuditTrail: Retrieve agreement hashes
+  AuditTrail -->> SmartContract: Agreement hashes
 
   SmartContract ->> ZeroKnowledge: Verify ZKP with agreement hashes
   ZeroKnowledge -->> SmartContract: Verification Result
