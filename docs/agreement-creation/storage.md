@@ -7,7 +7,7 @@ title: Agreement Storage
 
 ## Filecoin/IPFS
 
-We encrypt (using [xsalsa20](https://www.xsalsa20.com/)) and store two files for every created deal.
+We encrypt (using [xsalsa20](https://www.xsalsa20.com/)) and store two files for every created agreement.
 
 - an encrypted agreement PDF
 - an encrypted JSON file with agreement details

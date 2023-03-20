@@ -3,11 +3,10 @@ import mixpanel from "mixpanel-browser";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-mixpanel.init("eec85d062d86fd7d20d2d8d5d20bf578", {
-  disable_notifications: true,
-  test: true,
-});
-mixpanel.track("Terms of Use View");
+if (window.location.hostname.includes("zksig.io")) {
+  mixpanel.init("eec85d062d86fd7d20d2d8d5d20bf578");
+  mixpanel.track("Terms of Use View");
+}
 
 const Bullet = ({ children, number, title }) => {
   return (

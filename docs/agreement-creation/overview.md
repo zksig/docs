@@ -3,11 +3,9 @@ sidebar_position: 1
 title: Overview
 ---
 
-import pdfTree from "./img/pdf-tree.png";
-
 # Overview
 
-A new agreement is primary processed in a user's browser (see [Agreement Processing](./agreement-processing.md))
+A new agreement is primarily processed in a user's browser (see [Agreement Processing](./agreement-processing.md))
 with the zksig SDK. The in-browser processing results in:
 
 - Document ID
