@@ -54,7 +54,7 @@ flowchart TD
 
 ## Step 2: Encrypt Agreement PDF
 
-An agreement's PDF is encrypted so that it can be stored publicly on IPFS. The PDF is then encrypted using
+An agreement's PDF is encrypted so that it can be stored publicly on IPFS. The PDF is encrypted using
 [xsalsa20](https://www.xsalsa20.com/) with a randomly generated encryption key.
 
 ## Step 3: Create a document ID
@@ -64,7 +64,7 @@ A document ID is created with the following goals:
 - create a unique identifier for an agreement
 - have the ability to prove a detail about an agreement (e.g. its title) without divulging additional information
 
-To accomplish this basic details about an agreement are inserted into an SMT:
+To accomplish this, basic details about an agreement are inserted into an SMT:
 
 - title
 - PDF IPFS CID for the agreement PDF
