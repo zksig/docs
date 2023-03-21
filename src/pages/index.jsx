@@ -8,11 +8,10 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Faqs } from "../components/Faqs";
 
-mixpanel.init("eec85d062d86fd7d20d2d8d5d20bf578", {
-  disable_notifications: true,
-  test: true,
-});
-mixpanel.track("Home View");
+if (process.env.NODE_ENV === "production") {
+  mixpanel.init("eec85d062d86fd7d20d2d8d5d20bf578");
+  mixpanel.track("Home View");
+}
 
 export default function Home() {
   return (

@@ -95,9 +95,9 @@ export function Header() {
             <div className="hidden md:flex md:gap-x-6"></div>
           </div>
           <div className="flex items-center gap-x-4 md:gap-x-4">
-            {/* <Button variant="outline" href="/docs/intro">
+            <Button variant="outline" href="/docs">
               Documentation
-            </Button> */}
+            </Button>
             <Button
               variant="solid"
               href="https://alpha.zksig.io"
