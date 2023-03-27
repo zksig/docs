@@ -75,7 +75,22 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <hr className="m-2 border-slate-300/40" />
+            <div className="column flex flex-col items-center gap-2">
+              <Button variant="outline" className="w-full" href="/docs">
+                Documentation
+              </Button>
+              <hr className="m-2 w-full border-slate-300/40" />
+              <Button
+                variant="solid"
+                className="w-full"
+                href="https://alpha.zksig.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => mixpanel.track("Header Login")}
+              >
+                Try Our Alpha
+              </Button>
+            </div>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -94,7 +109,7 @@ export function Header() {
             </a>
             <div className="hidden md:flex md:gap-x-6"></div>
           </div>
-          <div className="flex items-center gap-x-4 md:gap-x-4">
+          <div className="hidden items-center gap-x-4 md:flex md:gap-x-4">
             <Button variant="outline" href="/docs">
               Documentation
             </Button>
@@ -107,9 +122,9 @@ export function Header() {
             >
               Try Our Alpha
             </Button>
-            <div className="-mr-1 md:hidden">
-              <MobileNavigation />
-            </div>
+          </div>
+          <div className="-mr-1 flex items-center md:hidden">
+            <MobileNavigation />
           </div>
         </nav>
       </Container>
