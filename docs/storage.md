@@ -28,7 +28,7 @@ flowchart TD
 
 During creation two types of agreement files are created and stored:
 
-- Agreement PDF (see [Agreement Processing](./agreement-processing.md) for more details)
+- Agreement PDF (see [Agreement Processing](./agreement-creation/agreement-processing.md) for more details)
 - Agreement Details (used to reconstruct a [sparse merkle tree](https://wiki.polygon.technology/docs/zkEVM/zkProver/sparse-merkle-tree/) to facilitate zero knowledge agreement sharing)
 
 These files are processed and created in a user's browser and never touch zkSig servers.
