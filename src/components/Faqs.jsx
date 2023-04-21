@@ -40,7 +40,7 @@ const faqs = [
     {
       question: "Do I need a crypto wallet to use zkSig?",
       answer:
-        "No need to create or connect a wallet to use zkSig. We use web3Auth so you can log in with an email address.",
+        "No need to create or connect a wallet to use zkSig. We use Privy so you can log in with an email address.",
     },
     {
       question: "Can I download and save my zkSig docs?",
