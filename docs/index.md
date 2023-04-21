@@ -13,7 +13,7 @@ sidebar_position: 1
 - **Event Broadcaster** - services used to broadcast messages to smart contracts and webhooks
 
 Novel implementations of these modules can be implemented to cover new jurisdictions and unforeseen use cases.
-For example, currently we use [Web3Auth](https://web3auth.io/) to handle **identity**. However, in the future we
+For example, currently we use [Privy](https://privy.io/) to handle **identity**. However, in the future we
 can implement new **identity** modules like [Decentralized Identity](https://polygon.technology/polygon-id) or
 [Centralized Certificate Authorities](https://en.wikipedia.org/wiki/Certificate_authority). Similarly, we can
 implement new **event broadcasters** to send to agreement events to any blockchain.

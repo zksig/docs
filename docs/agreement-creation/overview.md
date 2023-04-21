@@ -22,12 +22,12 @@ This information is sent to the zkSig API where it is verified and stored.
 ```mermaid
 sequenceDiagram
   actor Creator
-  participant Web3Auth
+  participant Privy
   participant SDK
   participant API
 
-  Creator ->> Web3Auth: Login
-  Web3Auth -->> Creator: Wallet
+  Creator ->> Privy: Login
+  Privy -->> Creator: Wallet
   Creator ->> SDK: Process agreement details
   SDK ->> API: Document ID & ZKP of valid agreement
   API -->> Creator: Transaction hash
