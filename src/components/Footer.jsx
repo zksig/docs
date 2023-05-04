@@ -3,6 +3,7 @@ import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { NavLink } from "./NavLink";
 import Head from "@docusaurus/Head";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 export function Footer() {
   return (
@@ -37,17 +38,21 @@ export function Footer() {
               reserved.
             </p>
 
-            <div className="mt-2 flex justify-center">
-              <a href="#footer">
-                <img
-                  onClick={window.logBadgeClick}
-                  id="badge-button"
-                  style={{ width: "240px", height: "53px" }}
-                  src="https://static.alchemyapi.io/images/marketing/badgeLight.png"
-                  alt="Alchemy Supercharged"
-                />
-              </a>
-            </div>
+            <BrowserOnly>
+              {() => (
+                <div className="mt-2 flex justify-center">
+                  <a href="#footer">
+                    <img
+                      onClick={window.logBadgeClick}
+                      id="badge-button"
+                      style={{ width: "240px", height: "53px" }}
+                      src="https://static.alchemyapi.io/images/marketing/badgeLight.png"
+                      alt="Alchemy Supercharged"
+                    />
+                  </a>
+                </div>
+              )}
+            </BrowserOnly>
 
             <div className="flex justify-end gap-x-6">
               <a
