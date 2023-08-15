@@ -15,12 +15,10 @@ export function CallToAction() {
             <Button
               varient="solid"
               color="white"
-              href="https://alpha.zksig.io"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/waitlist"
               onClick={() => mixpanel.track("CTA Login")}
             >
-              Try Our Alpha
+               Register Now
             </Button>
           </div>
         </div>

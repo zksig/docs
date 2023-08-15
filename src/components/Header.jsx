@@ -83,12 +83,10 @@ function MobileNavigation() {
               <Button
                 variant="solid"
                 className="w-full"
-                href="https://alpha.zksig.io"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/waitlist"
                 onClick={() => mixpanel.track("Header Login")}
               >
-                Try Our Alpha
+                Register Now
               </Button>
             </div>
           </Popover.Panel>
@@ -115,12 +113,10 @@ export function Header() {
             </Button>
             <Button
               variant="solid"
-              href="https://alpha.zksig.io"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/waitlist"
               onClick={() => mixpanel.track("Header Login")}
             >
-              Try Our Alpha
+              Register Now
             </Button>
           </div>
           <div className="-mr-1 flex items-center md:hidden">

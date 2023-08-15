@@ -72,12 +72,10 @@ export function Hero() {
             <Button
               variant="solid"
               color="yellow"
-              href="https://alpha.zksig.io"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/waitlist"
               onClick={() => mixpanel.track("Hero Login")}
             >
-              Try Our Alpha
+              Register Now
             </Button>
           </div>
         </div>

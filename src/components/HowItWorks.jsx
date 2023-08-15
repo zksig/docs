@@ -41,7 +41,7 @@ const features = [
 function Feature({ feature, isActive, className, ...props }) {
   return (
     <div
-      className={clsx(className, !isActive && "opacity-75 hover:opacity-100")}
+      className={clsx(className, !isActive && "opacity-50 hover:opacity-80")}
       {...props}
     >
       <div
@@ -52,10 +52,10 @@ function Feature({ feature, isActive, className, ...props }) {
       >
         <feature.icon className="h-8 w-8" aria-hidden="true" />
       </div>
-      <p className="mt-2 font-display text-lg font-semibold text-slate-900 text-left">
+      <p className="mt-2 text-left font-display text-lg font-semibold text-slate-900">
         {feature.summary}
       </p>
-      <p className="mt-4 text-sm text-slate-600 text-left">
+      <p className="mt-4 text-left text-sm text-slate-600">
         {feature.description}
       </p>
     </div>
@@ -90,18 +90,15 @@ function DesktopFlow() {
     <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
       {({ selectedIndex }) => (
         <>
-          <Tab.List className="grid grid-cols-3 gap-x-8">
+          <Tab.List className="grid grid-cols-3 items-start gap-x-6">
             {features.map((feature, featureIndex) => (
-              <Tab>
+              <Tab className="border-1 flex h-full cursor-pointer rounded-md border-0 bg-slate-50 p-4 ring-1 ring-slate-300 ring-offset-2 focus:outline-none">
                 <Feature
                   key={feature.name}
                   feature={{
                     ...feature,
                     name: (
-                      <Tab className="[&:not(:focus-visible)]:focus:outline-none">
-                        <span className="absolute inset-0" />
-                        {feature.name}
-                      </Tab>
+                      <span className="absolute inset-0">{feature.name}</span>
                     ),
                   }}
                   isActive={featureIndex === selectedIndex}
